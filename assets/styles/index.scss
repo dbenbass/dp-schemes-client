@@ -1,1 +1,71 @@
 @import '~bootstrap/scss/bootstrap';
+
+html,
+h1 {
+
+  $background-color: #000;
+  $font-color: #80bfff;
+  $form-color: #ff9;
+
+  background-color: $background-color;
+  color: $font-color;
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 12px;
+  height: 100%;
+}
+
+#sign-up {
+  color: #ffe6e6;
+  font-size: 12px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+#sign-in {
+  color: #ffe6e6;
+  font-size: 12px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+#sign-out {
+  color: #ffe6e6;
+  font-size: 12px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+#change-password {
+  color: #ffe6e6;
+  font-size: 12px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+#message {
+  color: #ffe6e6;
+  font-size: 40px;
+  text-align: center;
+
+  &.success {
+    background-color: #e6e6fa;
+  }
+
+  &.failure {
+    background-color: #ff4500;
+  }
+}
+
+
+body {
+
+  $background-color: #000;
+  $font-color: #ff9;
+  $form-color: #ff9;
+
+  background-color: $background-color;
+  color: $font-color;
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 12px;
+  height: 100%;
+}
