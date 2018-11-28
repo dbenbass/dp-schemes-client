@@ -36,11 +36,11 @@ const deleteScheme = data => {
   })
 }
 
-const indexSchemes = () => {
+const showAllSchemes = data => {
   return $.ajax({
     url: config.apiUrl + '/schemes',
     method: 'GET',
-    data: {}
+    data: data
   })
 }
 
@@ -58,7 +58,7 @@ module.exports = {
   createScheme,
   changeScheme,
   deleteScheme,
-  indexSchemes,
+  showAllSchemes,
   showOneScheme
 
 }
