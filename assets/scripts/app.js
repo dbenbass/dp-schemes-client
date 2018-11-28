@@ -16,4 +16,5 @@ $(() => {
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#scheme-create').on('submit', schemeEvents.onCreateScheme)
   $('#scheme-index').on('submit', schemeEvents.onShowAllSchemes)
+  $('#scheme-delete').on('submit', schemeEvents.onDeleteScheme)
 })

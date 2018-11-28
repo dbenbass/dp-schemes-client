@@ -25,10 +25,10 @@ const changeScheme = data => {
   })
 }
 
-const deleteScheme = data => {
+const deleteScheme = id => {
   return $.ajax({
-    url: config.apiUrl + '/schemes-update',
-    method: 'PATCH',
+    url: config.apiUrl + '/schemes/' + id,
+    method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },

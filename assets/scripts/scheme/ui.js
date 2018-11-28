@@ -3,7 +3,7 @@
 const store = require('../store.js')
 
 const createSchemeSuccess = data => {
-  store.scheme = data.scheme
+  store.schemes = data.schemes
   $('#message').text('Successfuly created scheme')
   $('#message').removeClass()
   $('#message').addClass('success')
@@ -18,7 +18,8 @@ const createSchemeFailure = data => {
 }
 
 const showAllSchemesSuccess = data => {
-  store.scheme = data.scheme
+  store.schemes = data.schemes
+  console.log(store.schemes)
   $('#message').text('Successfuly indexed schemes')
   $('#message').removeClass()
   $('#message').addClass('success')
@@ -31,10 +32,26 @@ const showAllSchemesFailure = data => {
   $('#message').addClass('failure')
   console.error('did not run. Data is :', data)
 }
+
+const deleteSchemeSuccess = data => {
+  $('#message').text('Successfuly deleted scheme')
+  $('#message').removeClass()
+  $('#message').addClass('success')
+  console.log('deleteScheme ran. Data is :', data)
+}
+
+const deleteSchemeFailure = data => {
+  $('#message').text('Failure on scheme delete')
+  $('#message').removeClass()
+  $('#message').addClass('failure')
+  console.error('did not run. Data is :', data)
+}
 module.exports = {
   createSchemeSuccess,
   createSchemeFailure,
   showAllSchemesSuccess,
-  showAllSchemesFailure
+  showAllSchemesFailure,
+  deleteSchemeSuccess,
+  deleteSchemeFailure
 
 }

@@ -26,8 +26,19 @@ const onShowAllSchemes = event => {
     .catch(ui.showAllSchemesFailure) // if your request failed
 }
 
+const onDeleteScheme = event => {
+  event.preventDefault()
+  const data = $('#delete-input').val()
+  console.log('delete scheme')
+  // take this data and send it to our server
+  // using an HTTP request (POST)
+  api.deleteScheme(data)
+    .then(ui.deleteSchemeSuccess) // if your request was succesful
+    .catch(ui.deleteSchemeFailure) // if your request failed
+}
 module.exports = {
   onCreateScheme,
-  onShowAllSchemes
+  onShowAllSchemes,
+  onDeleteScheme
 
 }
