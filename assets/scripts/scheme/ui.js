@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
+// import api.js
 
 const createSchemeSuccess = data => {
   store.schemes = data.schemes
@@ -8,6 +9,9 @@ const createSchemeSuccess = data => {
   $('#message').removeClass()
   $('#message').addClass('success')
   console.log('createScheme ran. Data is :', data)
+  // api.getAllSchemes()
+//    .then(showAllSchemesSuccess)
+//    .catch()
 }
 
 const createSchemeFailure = data => {
