@@ -9,7 +9,8 @@ h1 {
 
   background-color: $background-color;
   color: $font-color;
-  font-family: 'Roboto Mono', sans-serif;
+  font-family: 'Roboto Mono', sans-serif, bold;
+  font-weight: bold;
   font-size: 12px;
   height: 100%;
 }

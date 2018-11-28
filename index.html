@@ -14,7 +14,7 @@
     </head>
     <body>
       <center>
-      <h1>d.p. schemes</h1>
+      <h1><b>d.p. schemes</b></h1>
       <br>
         <br>
           <br>
@@ -57,6 +57,7 @@ a live archive
 <br>
   <br>
     <br>
+
 <form id="sign-out">
    <fieldset>
      Sign out
@@ -64,8 +65,23 @@ a live archive
    </fieldset>
 </form>
 
-<p id="message"></p>
+<form id="scheme-create">
+ <fieldset>
+   submit a scheme
+   <br>
+   <input type="text" name="scheme[name]" placeholder="Name" id="name">
+   <input type="date" name="scheme[date]" placeholder="Date" id="date">
+   <input type="text" name="scheme[idea]" placeholder="Scheme" id="scheme">
+   <input type="text" name="scheme[category]" placeholder="Category" id="category">
+   <input type="text" name="scheme[feasibility]" placeholder="Feasibility" id="feasibility">
+   <input type="boolean" name="scheme[highlight]" placeholder="Highlight" id="highlight">
+   <input type="submit" value="Submit scheme">
+ </fieldset>
+</form>
+
+<p id="message">
 <div class='flex-container flex-center'>
+</p>
 </div>
     </body>
 </html>
