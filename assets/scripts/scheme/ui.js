@@ -1,5 +1,5 @@
 'use strict'
-
+// const showSchemesTemplate = require('../templates/schemes.handlebars')
 const store = require('../store.js')
 // import api.js
 
@@ -27,7 +27,18 @@ const showAllSchemesSuccess = data => {
   $('#message').text('Successfuly indexed schemes')
   $('#message').removeClass()
   $('#message').addClass('success')
-  console.log('createScheme ran. Data is :', data)
+  $('#message').html('')
+  data.schemes.forEach(scheme => {
+    const schemeHTML = (`
+      <h4>Scheme: ${scheme.idea}</h4>
+      <p>Feasibility ${scheme.feasibility}</p>
+      <p>ID: ${scheme.id}</p>
+      <br>
+      `)
+    $('#message').append(schemeHTML)
+  })
+  // use jquery here to display data
+//  console.log('createScheme ran. Data is :', data)
 }
 
 const showAllSchemesFailure = data => {
@@ -50,6 +61,7 @@ const deleteSchemeFailure = data => {
   $('#message').addClass('failure')
   console.error('did not run. Data is :', data)
 }
+
 module.exports = {
   createSchemeSuccess,
   createSchemeFailure,
@@ -57,5 +69,6 @@ module.exports = {
   showAllSchemesFailure,
   deleteSchemeSuccess,
   deleteSchemeFailure
+  // showSchemesTemplate
 
 }

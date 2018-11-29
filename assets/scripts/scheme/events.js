@@ -26,6 +26,17 @@ const onShowAllSchemes = event => {
     .catch(ui.showAllSchemesFailure) // if your request failed
 }
 
+const onShowOneScheme = event => {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log('get schemes')
+  // take this data and send it to our server
+  // using an HTTP request (POST)
+  api.showOneScheme(data)
+    .then(ui.showOneSchemeSuccess) // if your request was succesful
+    .catch(ui.showOneSchemeFailure) // if your request failed
+}
+
 const onDeleteScheme = event => {
   event.preventDefault()
   const data = $('#delete-input').val()
@@ -36,9 +47,11 @@ const onDeleteScheme = event => {
     .then(ui.deleteSchemeSuccess) // if your request was succesful
     .catch(ui.deleteSchemeFailure) // if your request failed
 }
+
 module.exports = {
   onCreateScheme,
   onShowAllSchemes,
-  onDeleteScheme
+  onDeleteScheme,
+  onShowOneScheme
 
 }

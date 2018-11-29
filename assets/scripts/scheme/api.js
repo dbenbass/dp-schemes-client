@@ -46,7 +46,7 @@ const showAllSchemes = data => {
 
 const showOneScheme = data => {
   return $.ajax({
-    url: config.apiUrl + '/schemes-show',
+    url: config.apiUrl + '/schemes',
     method: 'GET',
     data: {}
   })
