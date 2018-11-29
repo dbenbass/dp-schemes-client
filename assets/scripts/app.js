@@ -18,4 +18,5 @@ $(() => {
   $('#scheme-index').on('submit', schemeEvents.onShowAllSchemes)
   $('#scheme-delete').on('submit', schemeEvents.onDeleteScheme)
   $('#scheme-show').on('submit', schemeEvents.onShowOneScheme)
+  schemeEvents.onShowAllSchemes()
 })

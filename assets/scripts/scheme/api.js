@@ -36,11 +36,10 @@ const deleteScheme = id => {
   })
 }
 
-const showAllSchemes = data => {
+const showAllSchemes = () => {
   return $.ajax({
     url: config.apiUrl + '/schemes',
-    method: 'GET',
-    data: data
+    method: 'GET'
   })
 }
 

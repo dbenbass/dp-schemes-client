@@ -50,6 +50,10 @@ const signOutSuccess = data => {
   $('#message').removeClass()
   $('#message').addClass('success')
   console.log('signOutSuccess ran. Data is :', data)
+  $('#sign-out').hide()
+  $('#scheme-create').hide()
+  $('#scheme-update').hide()
+  $('#change-password').hide()
 }
 
 const signOutFailure = error => {

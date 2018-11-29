@@ -15,13 +15,13 @@ const onCreateScheme = event => {
     .catch(ui.createSchemeFailure) // if your request failed
 }
 
-const onShowAllSchemes = event => {
+const onShowAllSchemes = () => {
   event.preventDefault()
-  const data = getFormFields(event.target)
+  // const data = getFormFields(event.target)
   console.log('get schemes')
   // take this data and send it to our server
   // using an HTTP request (POST)
-  api.showAllSchemes(data)
+  api.showAllSchemes()
     .then(ui.showAllSchemesSuccess) // if your request was succesful
     .catch(ui.showAllSchemesFailure) // if your request failed
 }
