@@ -46,9 +46,7 @@ const showAllSchemesSuccess = data => {
       <h1>${scheme.idea}</h1>
       <p>Feasibility: ${scheme.feasibility}</p>
       <p>By: ${scheme.name}</p>
-
       <p>Category: ${scheme.category}</p>
-
       <p>ID: ${scheme.id}</p>
       <p>Date Submitted: ${scheme.date}</p>
       <br>

@@ -16,7 +16,7 @@ const onCreateScheme = event => {
 }
 
 const onShowAllSchemes = () => {
-  event.preventDefault()
+  // event.preventDefault()
   // const data = getFormFields(event.target)
   console.log('get schemes')
   // take this data and send it to our server
@@ -53,5 +53,4 @@ module.exports = {
   onShowAllSchemes,
   onDeleteScheme,
   onShowOneScheme
-
 }
