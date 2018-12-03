@@ -14,14 +14,14 @@ const createScheme = data => {
   })
 }
 
-const changeScheme = data => {
+const updateScheme = function (schemeObject) {
   return $.ajax({
-    url: config.apiUrl + '/schemes-update',
+    url: config.apiUrl + `/schemes/${schemeObject.scheme.id}`,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data
+    data: schemeObject
   })
 }
 
@@ -44,8 +44,9 @@ const showAllSchemes = () => {
 }
 
 const showOneScheme = data => {
+  const id = data.scheme.id
   return $.ajax({
-    url: config.apiUrl + '/schemes',
+    url: config.apiUrl + `/schemes/ + id`,
     method: 'GET',
     data: {}
   })
@@ -55,9 +56,9 @@ module.exports = {
 //  createGame,
 
   createScheme,
-  changeScheme,
   deleteScheme,
   showAllSchemes,
-  showOneScheme
+  showOneScheme,
+  updateScheme
 
 }

@@ -71,7 +71,7 @@ const showOneSchemeSuccess = function (scheme) {
     <p>Feasibility: ${scheme.feasibility}</p>
     <p>By: ${scheme.name}</p>
     <p>Category: ${scheme.category}</p>
-    <p>ID: ${scheme.id}</p>
+    <p>ID: ${scheme.ID}</p>
     <p>Date Submitted:${scheme.date}</p>
     <br>
     `)
@@ -101,6 +101,27 @@ const deleteSchemeFailure = data => {
   console.error('did not run. Data is :', data)
 }
 
+const onUpdateSchemeSuccess = id => {
+  store.schemes = id.schemes
+  $('#message').text('Successfuly updated scheme')
+  $('#message').removeClass()
+  $('#message').addClass('success')
+  console.log('updateScheme ran. Data is :', id)
+  // create a scheme and then run showAllSchemes
+  api.showAllSchemes()
+    .then(showAllSchemesSuccess)
+  //    .catch()
+}
+
+const onUpdateSchemeFailure = function (response) {
+  $('#message').html('Failur. Data is :', response)
+  // reset form
+  $('#schemes-update').trigger('reset')
+  console.log(response)
+  api.showAllSchemes()
+    .then(showAllSchemesSuccess)
+  //    .catch()
+}
 module.exports = {
   createSchemeSuccess,
   createSchemeFailure,
@@ -109,7 +130,9 @@ module.exports = {
   deleteSchemeSuccess,
   deleteSchemeFailure,
   showOneSchemeSuccess,
-  showOneSchemeFailure
+  showOneSchemeFailure,
+  onUpdateSchemeSuccess,
+  onUpdateSchemeFailure
   // showSchemesTemplate
 
 }

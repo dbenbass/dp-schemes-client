@@ -16,7 +16,7 @@ const onCreateScheme = event => {
 }
 
 const onShowAllSchemes = () => {
-  // event.preventDefault()
+// event.preventDefault()
   // const data = getFormFields(event.target)
   console.log('get schemes')
   // take this data and send it to our server
@@ -26,9 +26,28 @@ const onShowAllSchemes = () => {
     .catch(ui.showAllSchemesFailure) // if your request failed
 }
 
+const onUpdateScheme = function (event) {
+  console.log('update')
+  event.preventDefault()
+  const input = getFormFields(event.target) // input = { book: { id: 100 } }
+  console.log('my book id is ', input.scheme.id)
+  console.log('my book id title ', input.scheme.idea)
+  console.log('my book id author ', input.scheme.name)
+  const schemeObject = input
+  // passing in 3 arguments: id, title, author
+  api.updateScheme(schemeObject)
+    .then(function (response) {
+      // response should contain update book object
+      ui.onUpdateSchemeSuccess(response)
+    })
+  // .then(ui.handleDeleteSuccessResponse)
+    .catch(ui.handleFailureResponse)
+}
+
 const onShowOneScheme = event => {
   event.preventDefault()
   const data = getFormFields(event.target)
+  console.log(data)
   console.log('get schemes')
   // take this data and send it to our server
   // using an HTTP request (POST)
@@ -52,5 +71,7 @@ module.exports = {
   onCreateScheme,
   onShowAllSchemes,
   onDeleteScheme,
-  onShowOneScheme
+  onShowOneScheme,
+  onUpdateScheme
+
 }

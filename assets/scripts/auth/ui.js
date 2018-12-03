@@ -5,6 +5,7 @@ const signUpSuccess = data => {
   $('#message').text('Signed up successfully')
   $('#message').removeClass()
   $('#message').addClass('success')
+  $('#sign-up').hide()
   console.log('signUpSuccess ran. Data is :', data)
 }
 
@@ -20,6 +21,8 @@ const signInSuccess = data => {
   $('#message').text('Signed in successfully')
   $('#message').removeClass()
   $('#message').addClass('success')
+  $('#sign-in').hide()
+  $('#sign-up').hide()
   console.log('signInSuccess ran. Data is :', data)
 }
 
