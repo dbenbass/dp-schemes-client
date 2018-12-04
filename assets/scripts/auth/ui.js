@@ -23,6 +23,7 @@ const signInSuccess = data => {
   $('#message').addClass('success')
   $('#sign-in').hide()
   $('#sign-up').hide()
+  $('#sign-out').show()
   console.log('signInSuccess ran. Data is :', data)
 }
 
@@ -57,6 +58,8 @@ const signOutSuccess = data => {
   $('#scheme-create').hide()
   $('#scheme-update').hide()
   $('#change-password').hide()
+  $('#sign-in').show()
+  $('#sign-up').show()
 }
 
 const signOutFailure = error => {

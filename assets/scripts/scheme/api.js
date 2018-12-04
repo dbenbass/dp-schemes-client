@@ -25,6 +25,13 @@ const updateScheme = function (schemeObject) {
   })
 }
 
+const oneScheme = function (id) {
+  return $.ajax({
+    url: config.apiUrl + `/schemes/${id}`,
+    method: 'GET'
+  })
+}
+
 const deleteScheme = id => {
   return $.ajax({
     url: config.apiUrl + '/schemes/' + id,
@@ -43,22 +50,13 @@ const showAllSchemes = () => {
   })
 }
 
-const showOneScheme = data => {
-  const id = data.scheme.id
-  return $.ajax({
-    url: config.apiUrl + `/schemes/ + id`,
-    method: 'GET',
-    data: {}
-  })
-}
-
 module.exports = {
 //  createGame,
 
   createScheme,
   deleteScheme,
   showAllSchemes,
-  showOneScheme,
-  updateScheme
+  updateScheme,
+  oneScheme
 
 }

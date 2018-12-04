@@ -64,26 +64,6 @@ const showAllSchemesFailure = data => {
   console.error('did not run. Data is :', data)
 }
 
-// #scheme-show
-const showOneSchemeSuccess = function (scheme) {
-  const schemeHTML = (`
-    <h1>${scheme.idea}</h1>
-    <p>Feasibility: ${scheme.feasibility}</p>
-    <p>By: ${scheme.name}</p>
-    <p>Category: ${scheme.category}</p>
-    <p>ID: ${scheme.ID}</p>
-    <p>Date Submitted:${scheme.date}</p>
-    <br>
-    `)
-  $('#data').html(schemeHTML)
-}
-
-const showOneSchemeFailure = data => {
-  $('#message').text('Failure on scheme delete')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  console.error('did not run. Data is :', data)
-}
 
 const deleteSchemeSuccess = data => {
   $('#message').text('Successfuly deleted scheme')
@@ -113,6 +93,15 @@ const onUpdateSchemeSuccess = id => {
   //    .catch()
 }
 
+const oneSchemeSuccess = function (response) {
+  store.schemes = response.schemes
+  $('#message').text('Successfuly showed scheme. Data is :', response)
+  $('#message').removeClass()
+  $('#message').addClass('success')
+  console.log('showScheme ran. Data is :', response)
+  // create a scheme and then run showAllSchemes
+}
+
 const onUpdateSchemeFailure = function (response) {
   $('#message').html('Failur. Data is :', response)
   // reset form
@@ -129,8 +118,7 @@ module.exports = {
   showAllSchemesFailure,
   deleteSchemeSuccess,
   deleteSchemeFailure,
-  showOneSchemeSuccess,
-  showOneSchemeFailure,
+  oneSchemeSuccess,
   onUpdateSchemeSuccess,
   onUpdateSchemeFailure
   // showSchemesTemplate

@@ -15,8 +15,8 @@ const onCreateScheme = event => {
     .catch(ui.createSchemeFailure) // if your request failed
 }
 
-const onShowAllSchemes = () => {
-// event.preventDefault()
+const onShowAllSchemes = (event) => {
+  event.preventDefault()
   // const data = getFormFields(event.target)
   console.log('get schemes')
   // take this data and send it to our server
@@ -44,16 +44,22 @@ const onUpdateScheme = function (event) {
     .catch(ui.handleFailureResponse)
 }
 
-const onShowOneScheme = event => {
+const onShowOneScheme = function (event) {
+  console.log('one scheme')
   event.preventDefault()
-  const data = getFormFields(event.target)
+  const data = $('#scheme-show').val()
+//  console.log('my book id is ', input.scheme.ID)
+//  console.log('my book id title ', input.scheme.idea)
+//  console.log('my book id author ', input.scheme.name)
+  // passing in 3 arguments: id, title, author
   console.log(data)
-  console.log('get schemes')
-  // take this data and send it to our server
-  // using an HTTP request (POST)
-  api.showOneScheme(data)
-    .then(ui.showOneSchemeSuccess) // if your request was succesful
-    .catch(ui.showOneSchemeFailure) // if your request failed
+  api.oneScheme(data)
+    .then(function (response) {
+      // response should contain update book object
+      ui.oneSchemeSuccess(response)
+    })
+  // .then(ui.handleDeleteSuccessResponse)
+    .catch(ui.handleFailureResponse)
 }
 
 const onDeleteScheme = event => {
