@@ -16,7 +16,7 @@ const onCreateScheme = event => {
 }
 
 const onShowAllSchemes = (event) => {
-  event.preventDefault()
+  // event.preventDefault()
   // const data = getFormFields(event.target)
   console.log('get schemes')
   // take this data and send it to our server
@@ -48,7 +48,7 @@ const onShowOneScheme = function (event) {
   console.log('one scheme')
   event.preventDefault()
   const data = $('#scheme-show').val()
-//  console.log('my book id is ', input.scheme.ID)
+//  console.log('my book id is ', d.scheme.ID)
 //  console.log('my book id title ', input.scheme.idea)
 //  console.log('my book id author ', input.scheme.name)
   // passing in 3 arguments: id, title, author

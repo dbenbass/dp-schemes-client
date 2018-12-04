@@ -95,10 +95,22 @@ const onUpdateSchemeSuccess = id => {
 
 const oneSchemeSuccess = function (response) {
   store.schemes = response.schemes
+  $('#data').html('')
   $('#message').text('Successfuly showed scheme. Data is :', response)
   $('#message').removeClass()
   $('#message').addClass('success')
   console.log('showScheme ran. Data is :', response)
+  const oneSchemeHTML = (`
+    <h1>${response.scheme.idea}</h1>
+    <p>Feasibility: ${response.scheme.feasibility}</p>
+    <p>By: ${response.scheme.name}</p>
+    <p>Category: ${response.scheme.category}</p>
+    <p>ID: ${response.scheme.id}</p>
+    <p>Date Submitted: ${response.scheme.date}</p>
+    <br>
+    `)
+  $('#data').append(oneSchemeHTML)
+
   // create a scheme and then run showAllSchemes
 }
 
