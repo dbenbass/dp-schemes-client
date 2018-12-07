@@ -24,6 +24,7 @@ const signInSuccess = data => {
   $('#sign-in').hide()
   $('#sign-up').hide()
   $('#sign-out').show()
+  $('#change-password').show()
   console.log('signInSuccess ran. Data is :', data)
 }
 

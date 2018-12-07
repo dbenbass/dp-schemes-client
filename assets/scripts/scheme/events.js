@@ -30,9 +30,9 @@ const onUpdateScheme = function (event) {
   console.log('update')
   event.preventDefault()
   const input = getFormFields(event.target) // input = { book: { id: 100 } }
-  console.log('my book id is ', input.scheme.id)
-  console.log('my book id title ', input.scheme.idea)
-  console.log('my book id author ', input.scheme.name)
+  // console.log('my book id is ', input.scheme.id)
+  // console.log('my book id title ', input.scheme.idea)
+  // console.log('my book id author ', input.scheme.name)
   const schemeObject = input
   // passing in 3 arguments: id, title, author
   api.updateScheme(schemeObject)
@@ -51,7 +51,7 @@ const onShowOneScheme = function (event) {
 //  console.log('my book id is ', d.scheme.ID)
 //  console.log('my book id title ', input.scheme.idea)
 //  console.log('my book id author ', input.scheme.name)
-  // passing in 3 arguments: id, title, author
+//  passing in 3 arguments: id, title, author
   console.log(data)
   api.oneScheme(data)
     .then(function (response) {

@@ -19,6 +19,7 @@ $(() => {
   $('#scheme-delete').on('submit', schemeEvents.onDeleteScheme)
   $('#schemes-show').on('submit', schemeEvents.onShowOneScheme)
   $('#schemes-update').on('submit', schemeEvents.onUpdateScheme)
-
+  $('#change-password').hide()
+  $('#sign-out').hide()
   schemeEvents.onShowAllSchemes()
 })
