@@ -1,113 +1,46 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+Dp-Schemes
+__________________
 
-# browser-template
+Deployed client - https://dbenbass.github.io/dp-schemes-client/
+Deployed API - https://dp-schemes.herokuapp.com/
+Github repo - https://github.com/dbenbass/dp-schemes-client
+__________________
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+Dp-Schemes is to create an archived list of ''schemes'' for the Dirt Palace art collective.
 
-## Installation
+As an institution that has been around for 18 years, I wanted to create a live digital
+archive of some of the creative ideas that collective members are constantly generating. A dynamic and updatable list, members can submit ''schemes''. The result is a fun to look at and searchable ''endless scroll' that not only preserves ideas for current collective members, but also archives the mood, dynamic, and history of the people living and working in the space.
 
-1. [Download](../../archive/master.zip) this template.
-1. Move to the `wdi/projects` directory, then unzip the template directory with
-    `unzip /Users/<user-name>/Downloads/browser-template-master.zip`.
-1. Rename the template directory from `browser-template-master` to
-    `<project-name>-client`.
-1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace all instances of `ga-wdi-boston.browser-template` with the name of
-    your project.
-1. Move into the new project and `git init`.
-1. Add all of the files in your project with the command `git add --all`.
-      - **Note: This is the only time you should run this command!**
-1. Commit all of your files with the command `git commit`.
-      - Your commit title should read `Initial commit`.
-1. Install dependencies with `npm install`.
-1. Create a new repository on [github.com](https://github.com),
-    _not GitHub Enterprise_.
-1. Name the new repository with the same name used on Step 3.
-1. Follow the instructions on your new repository's setup page. For details on
-   how to push to Github, refer to the section on Github entitled "…or push an existing
-   repository from the command line." Further documentation can be found [here](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/).
+__________________
 
-## Structure
+User Stories
 
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/app.js`](assets/scripts/app.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
+- As a user, I can create an account and log into the site.
+- I can change my password and sign out.
+- I can enter a ''scheme'' with a category selected and date.
+- I can add collaborators to the scheme.
+- I can update scheme with additional thoughts or mark them for importance.
+- As a user, I can scroll through the entire archive of "schemes", but I can also
+eliminate some of the list based on search parameters such as ID number.
 
-Developers should set `apiUrls.production` and `apiUrls.development` in
-[`assets/scripts/config.js`](assets/scripts/config.js).  With
-`apiUrls` set, developers may rely on `apiUrl` as the base for API
-URLs.
+__________________
 
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss). Bootstrap version 3 is
-included in this template.
+Technologies Used
 
-Developers should use [getFormFields](get-form-fields.md) to retrieve form data
-to send to an API.
+HTML, CSS, Javascript, jQuery, AJAX
 
-To deploy a browser-template based SPA, run `grunt deploy`.
+__________________
 
-## Adding Images
+Wireframes
 
-To add images to your project, you must store them in the `public` directory.
-To use the image in HTML or CSS, write the path to the image like this:
+https://imgur.com/a/FrxuSFw
 
-```html
-<img src="public/cat.jpg">
-```
-or
-```css
-#my-cool-div {
-  background-image: url('public/cat.jpg')
-}
-```
+__________________
 
-Note that there's no `./` or `/` in front of `public/filename.jpg`.
+Future plans
 
-## Adding Fonts
-
-To add custom fonts to your app, you can either use a CDN like Google Fonts, or
-you can download the fonts and save them in the `public` directory. If you use
-the former method, follow the directions on the website providing the fonts.
-
-For local fonts, put the files in `public`, and then import and use them in a
-`.scss` file like this:
-
-```scss
-@font-face {
-  font-family: 'Nature Beauty';
-  src: url('public/Nature-Beauty.ttf') format('truetype');
-}
-
-.element-with-custom-font {
-  font-family: 'Nature Beauty';
-}
-```
-
-## Tasks
-
-Developers should run these often!
-
-- `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
-- `grunt make-standard`: reformats all your code in the JavaScript Standard Style
-- `grunt <server|serve|s>`: generates bundles, watches, and livereloads
-- `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
-
-## Additional Resources
-
-- [Modern Javascript Explained for Dinosaurs](https://medium.com/@peterxjang/modern-javascript-explained-for-dinosaurs-f695e9747b70)
-- [Making Sense of Front End Build Tools](https://medium.freecodecamp.org/making-sense-of-front-end-build-tools-3a1b3a87043b)
-
-## [License](LICENSE)
-
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+- Because it is intended to be an archive, I want to discourage the user from deleting entries, but if they
+choose to, the deleted entry is replaced with a ''deletion'' item.
+- Set up a search function so that people can search by scheme categories based on event ideas, work day plans, "wingnut ideas", etcetera
+- Make it so that only certain categories, and only certain names can be entered -- perhaps via checkboxes.
+- Improve layout and design. Although I wish for it to remain relatively simple, there is definitely still some work to be done on this end.
