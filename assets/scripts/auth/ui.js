@@ -6,6 +6,8 @@ const signUpSuccess = data => {
   $('#message').removeClass()
   $('#message').addClass('success')
   $('#sign-up').hide()
+  $('#password').val('')
+  $('#email').val('')
   console.log('signUpSuccess ran. Data is :', data)
 }
 
@@ -13,6 +15,8 @@ const signUpFailure = error => {
   $('#message').text('Error on sign up')
   $('#message').removeClass()
   $('#message').addClass('failure')
+  $('#password').val('')
+  $('#email').val('')
   console.error('signUpFailure ran. Error is :', error)
 }
 
@@ -25,6 +29,8 @@ const signInSuccess = data => {
   $('#sign-up').hide()
   $('#sign-out').show()
   $('#change-password').show()
+  $('#password').val('')
+  $('#email').val('')
   console.log('signInSuccess ran. Data is :', data)
 }
 
@@ -32,6 +38,8 @@ const signInFailure = error => {
   $('#message').text('Error on sign in')
   $('#message').removeClass()
   $('#message').addClass('failure')
+  $('#password').val('')
+  $('#email').val('')
   console.error('signInFailure ran. Error is :', error)
 }
 
@@ -39,6 +47,8 @@ const changePasswordSuccess = data => {
   $('#message').text('Password changed successfully')
   $('#message').removeClass()
   $('#message').addClass('success')
+  $('#oldpassword').val('')
+  $('#newpassword').val('')
   console.log('changePasswordSuccess ran. Data is :', data)
 }
 
@@ -46,6 +56,8 @@ const changePasswordFailure = error => {
   $('#message').text('Error on password change')
   $('#message').removeClass()
   $('#message').addClass('failure')
+  $('#oldpassword').val('')
+  $('#newpassword').val('')
   console.error('changePasswordFailure ran. Error is :', error)
 }
 

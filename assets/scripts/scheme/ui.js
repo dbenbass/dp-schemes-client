@@ -10,6 +10,12 @@ const createSchemeSuccess = data => {
   $('#message').removeClass()
   $('#message').addClass('success')
   console.log('createScheme ran. Data is :', data)
+  $('#name').val('')
+  $('#date').val('')
+  $('#scheme').val('')
+  $('#category').val('')
+  $('#feasibility').val('')
+  $('#highlight').val('')
   // create a scheme and then run showAllSchemes
   api.showAllSchemes()
     .then(showAllSchemesSuccess)
@@ -64,7 +70,6 @@ const showAllSchemesFailure = data => {
   console.error('did not run. Data is :', data)
 }
 
-
 const deleteSchemeSuccess = data => {
   $('#message').text('Successfuly deleted scheme')
   $('#message').removeClass()
@@ -83,6 +88,13 @@ const deleteSchemeFailure = data => {
 
 const onUpdateSchemeSuccess = id => {
   store.schemes = id.schemes
+  $('#scheme-id-update').val('')
+  $('#name-update').val('')
+  $('#date-update').val('')
+  $('#scheme-update').val('')
+  $('#category-update').val('')
+  $('#feasibility-update').val('')
+  $('#highlight-update').val('')
   $('#message').text('Successfuly updated scheme')
   $('#message').removeClass()
   $('#message').addClass('success')
