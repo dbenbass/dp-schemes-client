@@ -22,37 +22,9 @@ h1 {
   margin-left: 10px;
 }
 
-#sign-up {
-  color: #ffe6e6;
-  font-size: 12px;
-  margin-bottom: 10px;
-  margin-left: 10px;
-}
-
-#sign-in {
-  color: #ffe6e6;
-  font-size: 12px;
-  margin-bottom: 10px;
-  margin-left: 10px;
-}
-
-#sign-out {
-  color: #ffe6e6;
-  font-size: 12px;
-  margin-bottom: 10px;
-  margin-left: 10px;
-}
-
-#change-password {
-  color: #ffe6e6;
-  font-size: 12px;
-  margin-bottom: 10px;
-  margin-left: 10px;
-}
-
 #message {
   color: #ffe6e6;
-  font-size: 40px;
+  font-size: 20px;
   text-align: center;
 
   &.success {
@@ -63,6 +35,49 @@ h1 {
     background-color: #ff4500;
   }
 }
+
+#authmessage {
+  color: #ffe6e6;
+  font-size: 20px;
+  text-align: left;
+
+  &.success {
+    background-color: #000;
+  }
+
+  &.failure {
+    background-color: #ff4500;
+  }
+}
+
+#onescheme {
+  color: #ffe6e6;
+  font-size: 20px;
+  text-align: left;
+
+  &.success {
+    background-color: #000;
+  }
+
+  &.failure {
+    background-color: #ff4500;
+  }
+}
+
+#submitmessage {
+  color: #ffe6e6;
+  font-size: 20px;
+  text-align: left;
+
+  &.success {
+    background-color: #000;
+  }
+
+  &.failure {
+    background-color: #ff4500;
+  }
+}
+
 
 body {
 

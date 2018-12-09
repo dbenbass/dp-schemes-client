@@ -41,7 +41,7 @@ const onUpdateScheme = function (event) {
       ui.onUpdateSchemeSuccess(response)
     })
   // .then(ui.handleDeleteSuccessResponse)
-    .catch(ui.handleFailureResponse)
+    .catch(ui.onUpdateSchemeFailure)
 }
 
 const onShowOneScheme = function (event) {
@@ -59,7 +59,7 @@ const onShowOneScheme = function (event) {
       ui.oneSchemeSuccess(response)
     })
   // .then(ui.handleDeleteSuccessResponse)
-    .catch(ui.handleFailureResponse)
+    .catch(ui.onOneSchemeFailure)
 }
 
 const onDeleteScheme = event => {

@@ -6,9 +6,9 @@ const api = require('./api.js')
 
 const createSchemeSuccess = data => {
   store.schemes = data.schemes
-  $('#message').text('Successfuly created scheme')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#submitmessage').text(`Successfuly created scheme ID ${data.scheme.id}`)
+  $('#submitmessage').removeClass()
+  $('#submitmessage').addClass('success')
   console.log('createScheme ran. Data is :', data)
   $('#name').val('')
   $('#date').val('')
@@ -16,6 +16,7 @@ const createSchemeSuccess = data => {
   $('#category').val('')
   $('#feasibility').val('')
   $('#highlight').val('')
+  $('#authmessage').hide()
   // create a scheme and then run showAllSchemes
   api.showAllSchemes()
     .then(showAllSchemesSuccess)
@@ -23,18 +24,19 @@ const createSchemeSuccess = data => {
 }
 
 const createSchemeFailure = data => {
-  $('#message').text('Failure on scheme create')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+  $('#submitmessage').text('Failure on scheme create')
+  $('#submitmessage').removeClass()
+  $('#submitmessage').addClass('failure')
+  $('#authmessage').hide()
   console.error('did not run. Data is :', data)
 }
 
 const showAllSchemesSuccess = data => {
   store.schemes = data.schemes
   // console.log(store.schemes)
-  $('#message').text('Successfuly indexed schemes')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#onescheme').text('You are currently viewing all schemes')
+  $('#onescheme').removeClass()
+  $('#onescheme').addClass('success')
   $('#data').html('')
   // add new schemes to top instead of bottom
   let allSchemes = data.schemes
@@ -64,9 +66,9 @@ const showAllSchemesSuccess = data => {
 }
 
 const showAllSchemesFailure = data => {
-  $('#message').text('Failure on scheme index')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+  $('#onescheme').text('Failure on scheme index')
+  $('#onescheme').removeClass()
+  $('#onescheme').addClass('failure')
   console.error('did not run. Data is :', data)
 }
 
@@ -95,11 +97,21 @@ const onUpdateSchemeSuccess = id => {
   $('#category-update').val('')
   $('#feasibility-update').val('')
   $('#highlight-update').val('')
-  $('#message').text('Successfuly updated scheme')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#authmessage').hide()
+  $('#submitmessage').text('Successfuly updated scheme')
+  $('#submitmessage').removeClass()
+  $('#submitmessage').addClass('success')
   console.log('updateScheme ran. Data is :', id)
   // create a scheme and then run showAllSchemes
+  api.showAllSchemes()
+    .then(showAllSchemesSuccess)
+  //    .catch()
+}
+const onUpdateSchemeFailure = function (response) {
+  $('#submitmessage').html('Failur. Data is :', response)
+  // reset form
+  $('#schemes-update').trigger('reset')
+  console.log(response)
   api.showAllSchemes()
     .then(showAllSchemesSuccess)
   //    .catch()
@@ -108,9 +120,9 @@ const onUpdateSchemeSuccess = id => {
 const oneSchemeSuccess = function (response) {
   store.schemes = response.schemes
   $('#data').html('')
-  $('#message').text('Successfuly showed scheme. Data is :', response)
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#onescheme').text(`You are currently viewing scheme ${response.scheme.id}`)
+  $('#onescheme').removeClass()
+  $('#onescheme').addClass('success')
   console.log('showScheme ran. Data is :', response)
   const oneSchemeHTML = (`
     <h1>${response.scheme.idea}</h1>
@@ -122,19 +134,25 @@ const oneSchemeSuccess = function (response) {
     <br>
     `)
   $('#data').append(oneSchemeHTML)
+  $('#scheme-index').show()
+  $('#scheme-show').val('')
+  $('#message').hide()
 
   // create a scheme and then run showAllSchemes
 }
 
-const onUpdateSchemeFailure = function (response) {
-  $('#message').html('Failur. Data is :', response)
-  // reset form
-  $('#schemes-update').trigger('reset')
-  console.log(response)
-  api.showAllSchemes()
-    .then(showAllSchemesSuccess)
-  //    .catch()
+const onOneSchemeFailure = error => {
+  $('#onescheme').text('Error retrieving scheme')
+  $('#onescheme').removeClass()
+  $('#onescheme').addClass('failure')
+  $('#password').val('')
+  $('#email').val('')
+  $('#scheme-show').val('')
+  $('#message').hide()
+  console.error('oneSchemeFailure ran. Error is :', error)
 }
+
+
 module.exports = {
   createSchemeSuccess,
   createSchemeFailure,
@@ -143,6 +161,7 @@ module.exports = {
   deleteSchemeSuccess,
   deleteSchemeFailure,
   oneSchemeSuccess,
+  onOneSchemeFailure,
   onUpdateSchemeSuccess,
   onUpdateSchemeFailure
   // showSchemesTemplate

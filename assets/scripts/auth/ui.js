@@ -1,10 +1,11 @@
 'use strict'
 const store = require('../store.js')
 
+
 const signUpSuccess = data => {
-  $('#message').text('Signed up successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#authmessage').text('Signed up successfully. Sign in below!')
+  $('#authmessage').removeClass()
+  $('#authmessage').addClass('success')
   $('#sign-up').hide()
   $('#password').val('')
   $('#email').val('')
@@ -12,9 +13,9 @@ const signUpSuccess = data => {
 }
 
 const signUpFailure = error => {
-  $('#message').text('Error on sign up')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+  $('#authmessage').text('Error on sign up')
+  $('#authmessage').removeClass()
+  $('#authmessage').addClass('failure')
   $('#password').val('')
   $('#email').val('')
   console.error('signUpFailure ran. Error is :', error)
@@ -22,63 +23,70 @@ const signUpFailure = error => {
 
 const signInSuccess = data => {
   store.user = data.user
-  $('#message').text('Signed in successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#authmessage').text('Signed in successfully')
+  $('#authmessage').removeClass()
+  $('#authmessage').addClass('success')
   $('#sign-in').hide()
   $('#sign-up').hide()
   $('#sign-out').show()
   $('#change-password').show()
   $('#password').val('')
   $('#email').val('')
+  $('#scheme-create').show()
+  $('#schemes-update').show()
+  $('#scheme-delete').show()
   console.log('signInSuccess ran. Data is :', data)
 }
 
 const signInFailure = error => {
-  $('#message').text('Error on sign in')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+  $('#authmessage').text('Error on sign in')
+  $('#authmessage').removeClass()
+  $('#authmessage').addClass('failure')
   $('#password').val('')
   $('#email').val('')
   console.error('signInFailure ran. Error is :', error)
 }
 
 const changePasswordSuccess = data => {
-  $('#message').text('Password changed successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#authmessage').text('Password changed successfully')
+  $('#authmessage').removeClass()
+  $('#authmessage').addClass('success')
   $('#oldpassword').val('')
   $('#newpassword').val('')
   console.log('changePasswordSuccess ran. Data is :', data)
 }
 
 const changePasswordFailure = error => {
-  $('#message').text('Error on password change')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+  $('#authmessage').text('Error on password change')
+  $('#authmessage').removeClass()
+  $('#authmessage').addClass('failure')
   $('#oldpassword').val('')
   $('#newpassword').val('')
   console.error('changePasswordFailure ran. Error is :', error)
 }
 
 const signOutSuccess = data => {
-  $('#message').text('Signed out successfully')
+  $('#authmessage').text('Signed out successfully')
   store.user = null
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#authmessage').removeClass()
+  $('#authmessage').addClass('success')
   console.log('signOutSuccess ran. Data is :', data)
   $('#sign-out').hide()
   $('#scheme-create').hide()
   $('#scheme-update').hide()
+  $('#onescheme').hide()
+  $('#submitmessage').hide()
   $('#change-password').hide()
   $('#sign-in').show()
   $('#sign-up').show()
+
+  //    .catch()
 }
 
 const signOutFailure = error => {
-  $('#message').text('Error on sign out')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+  $('#authmessage').text('Error on sign out')
+  $('#authmessage').removeClass()
+  $('#authmessage').addClass('failure')
   console.error('signOutFailure ran. Error is :', error)
 }
 
@@ -91,5 +99,4 @@ module.exports = {
   changePasswordFailure,
   signOutSuccess,
   signOutFailure
-
 }
