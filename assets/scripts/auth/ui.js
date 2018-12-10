@@ -75,6 +75,8 @@ const signOutSuccess = data => {
   $('#scheme-update').hide()
   $('#submitmessage').hide()
   $('#change-password').hide()
+  $('#onescheme').hide()
+  $('#deletemessage').hide()
   $('#sign-in').show()
   $('#sign-up').show()
   //    .catch()
