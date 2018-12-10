@@ -78,6 +78,20 @@ h1 {
   }
 }
 
+#deletemessage {
+  color: #ffe6e6;
+  font-size: 20px;
+  text-align: left;
+
+  &.success {
+    background-color: #000;
+  }
+
+  &.failure {
+    background-color: #ff4500;
+  }
+}
+
 
 body {
 

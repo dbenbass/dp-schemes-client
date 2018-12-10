@@ -1,7 +1,6 @@
 'use strict'
 const store = require('../store.js')
 
-
 const signUpSuccess = data => {
   $('#authmessage').text('Signed up successfully. Sign in below!')
   $('#authmessage').removeClass()
@@ -74,12 +73,10 @@ const signOutSuccess = data => {
   $('#sign-out').hide()
   $('#scheme-create').hide()
   $('#scheme-update').hide()
-  $('#onescheme').hide()
   $('#submitmessage').hide()
   $('#change-password').hide()
   $('#sign-in').show()
   $('#sign-up').show()
-
   //    .catch()
 }
 

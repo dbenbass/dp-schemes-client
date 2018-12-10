@@ -39,11 +39,11 @@ const showAllSchemesSuccess = data => {
   $('#onescheme').addClass('success')
   $('#data').html('')
   // add new schemes to top instead of bottom
-  let allSchemes = data.schemes
+  const allSchemes = data.schemes
   const allSchemesLoop = function (allSchemes) {
-    let schemesArray = []
+    const schemesArray = []
     for (let i = 0; i <= allSchemes.length; i++) {
-      let schemePop = allSchemes.pop()
+      const schemePop = allSchemes.pop()
       schemesArray.push(schemePop)
     }
     return schemesArray
@@ -64,7 +64,6 @@ const showAllSchemesSuccess = data => {
   // use jquery here to display data
   //  console.log('createScheme ran. Data is :', data)
 }
-
 const showAllSchemesFailure = data => {
   $('#onescheme').text('Failure on scheme index')
   $('#onescheme').removeClass()
@@ -73,19 +72,23 @@ const showAllSchemesFailure = data => {
 }
 
 const deleteSchemeSuccess = data => {
-  $('#message').text('Successfuly deleted scheme')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#deletemessage').text('Successfuly deleted scheme')
+  $('#deletemessage').removeClass()
+  $('#deletemessage').addClass('success')
+  $('#delete-input').val('')
   console.log('deleteScheme ran. Data is :', data)
   api.showAllSchemes()
     .then(showAllSchemesSuccess)
 }
 
 const deleteSchemeFailure = data => {
-  $('#message').text('Failure on scheme delete')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+  $('#deletemessage').text('Failure on scheme delete')
+  $('#deletemessage').removeClass()
+  $('#deletemessage').addClass('failure')
+  $('#delete-input').val('')
   console.error('did not run. Data is :', data)
+  api.showAllSchemes()
+    .then(showAllSchemesSuccess)
 }
 
 const onUpdateSchemeSuccess = id => {
@@ -151,7 +154,6 @@ const onOneSchemeFailure = error => {
   $('#message').hide()
   console.error('oneSchemeFailure ran. Error is :', error)
 }
-
 
 module.exports = {
   createSchemeSuccess,
